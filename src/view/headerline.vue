@@ -13,11 +13,9 @@
 			</div>
 		</div>
 		<div class="tab" ref="tab">
-			<div class="tab_content">
-				<div style="width:10rem">
-					<div class="tab_item" v-for="item in TabList">
-						{{item.name}}
-					</div>
+			<div class="tab_content" ref="tabcontent">
+				<div class="tab_item" v-for="item in TabList" ref="tabitem">
+					{{item.name}}
 				</div>
 			</div>
 		</div>
@@ -78,11 +76,20 @@ import BScroll from 'better-scroll'
 		},
 		methods:{
 			InitTabScroll(){
+				let width=0
+				for (let  i = 0; i <this.TabList.length; i++) {
+					width+=this.$refs.tabitem[0].getBoundingClientRect().width
+				}
+
+				this.$refs.tabcontent.style.width=width+'px'
 				this.$nextTick(()=>{
 					if (!this.scroll) {
 						this.scroll=new BScroll(this.$refs.tab, {
+							startX:0,
 		        			click:true,
 		        			scrollX:true,
+		        			scrollY:false,
+		        			eventPassthrough:'vertical'
         				})
 					}else{
 						this.scroll.refresh()
@@ -142,12 +149,14 @@ import BScroll from 'better-scroll'
 	font-size: 14px;
 }
 .tab{
-	width: 10.0rem;
+	/*width: 10.0rem;*/
 	height: 1.333333rem;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 .tab_content{
-	overflow-y: hidden;
+	height: 1.333333rem;
+	/*width: auto;*/
+	/*overflow-y: hidden;*/
 }
 .tab_item{
 	display: inline-block;
