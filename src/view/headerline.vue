@@ -158,22 +158,24 @@ import BScroll from 'better-scroll'
 	overflow: hidden;
 	background: #009a61;
 	color:#fff;
+	
 }
 .tab_content{
 	height: 1.333333rem;
+	
 	/*width: auto;*/
 	/*overflow-y: hidden;*/
 }
 .tab_item{
 	display: inline-block;
-	height: 1.333333rem;
-	line-height: 1.333333rem;
-	
+	height:1.293333rem;
+	line-height:1.293333rem;
+	border-bottom: 0.04rem solid #009a61;
 }
 .tab_item_content{
 	padding: 0 0.466667rem;
 }
 .tab_item_active{
-	border-bottom: 5px solid #fff;
+	border-bottom: 0.04rem solid #fff;
 }	
 </style>
