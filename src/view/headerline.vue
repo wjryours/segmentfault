@@ -14,8 +14,11 @@
 		</div>
 		<div class="tab" ref="tab">
 			<div class="tab_content" ref="tabcontent">
-				<div class="tab_item" v-for="item in TabList" ref="tabitem">
-					{{item.name}}
+				<div class="tab_item " v-for="(item,index) in TabList" ref="tabitem" @click="ChooseTab(item,index)">
+					<div class="tab_item_content " :class="{'tab_item_active':TabIndex==index}">
+						{{item.name}}
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -38,33 +41,31 @@ import BScroll from 'better-scroll'
 						name:'全部',
 					},
 					{
-						name:'全部',
+						name:'前端',
 					},
 					{
-						name:'全部',
+						name:'后端',
 					},
 					{
-						name:'全部',
+						name:'iOS',
 					},
 					{
-						name:'全部',
+						name:'Android',
 					},
 					{
-						name:'全部',
+						name:'安全',
 					},
 					{
-						name:'全部',
+						name:'工具',
 					},
 					{
-						name:'全部',
+						name:'程序员',
 					},
 					{
-						name:'全部',
-					},
-					{
-						name:'全部',
-					},
-				]
+						name:'行业',
+					}
+				],
+				TabIndex:0
 			}
 		},
 		components:{
@@ -78,7 +79,7 @@ import BScroll from 'better-scroll'
 			InitTabScroll(){
 				let width=0
 				for (let  i = 0; i <this.TabList.length; i++) {
-					width+=this.$refs.tabitem[0].getBoundingClientRect().width
+					width+=this.$refs.tabitem[i].getBoundingClientRect().width
 				}
 
 				this.$refs.tabcontent.style.width=width+'px'
@@ -95,6 +96,9 @@ import BScroll from 'better-scroll'
 						this.scroll.refresh()
 					}
 				})
+			},
+			ChooseTab(item,index){
+				this.TabIndex=index
 			}
 		}
 	}
@@ -149,9 +153,11 @@ import BScroll from 'better-scroll'
 	font-size: 14px;
 }
 .tab{
-	/*width: 10.0rem;*/
+	width: 10.0rem;
 	height: 1.333333rem;
 	overflow: hidden;
+	background: #009a61;
+	color:#fff;
 }
 .tab_content{
 	height: 1.333333rem;
@@ -162,6 +168,12 @@ import BScroll from 'better-scroll'
 	display: inline-block;
 	height: 1.333333rem;
 	line-height: 1.333333rem;
+	
+}
+.tab_item_content{
 	padding: 0 0.466667rem;
+}
+.tab_item_active{
+	border-bottom: 5px solid #fff;
 }	
 </style>
