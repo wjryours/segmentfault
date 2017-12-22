@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-
+import FastClick from 'fastclick'
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 let instance = axios.create({
@@ -20,7 +20,7 @@ let instance = axios.create({
 	}]
 });
 Vue.prototype.$http= instance
-
+FastClick.attach(document.body)
 
 Vue.config.productionTip = false
 
