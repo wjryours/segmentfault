@@ -162,7 +162,8 @@ import BScroll from 'better-scroll'
 </script>
 <style scoped>
 .article{
-	height: 17.786667rem;
+	/*height: 17.786667rem;*/
+	height: 16.186667rem;
 	overflow: hidden;
 }
 .header{
@@ -223,16 +224,16 @@ import BScroll from 'better-scroll'
 	display: inline-block;
 	height:1.293333rem;
 	line-height:1.293333rem;
-	border-bottom: 0.04rem solid #009a61;
+	border-bottom: 0.08rem solid #009a61;
 }
 .tab_item_content{
 	padding: 0 0.466667rem;
 }
 .tab_item_active{
-	border-bottom: 0.04rem solid #fff;
+	border-bottom: 0.08rem solid #fff;
 }
 .list_wraper{
-	padding-bottom: 1.6rem;
+	/*padding-bottom: 1.6rem;*/
 }
 .list_item{
 	padding:0.426667rem 0.466667rem;
