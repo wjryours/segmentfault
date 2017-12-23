@@ -54,11 +54,13 @@
 		</div>
 		<toast v-model="ToastShow" type="text" width="8rem">{{ToastTest}}</toast>
 		<loading v-show="loadingShow" :text="loadingWord"></loading>
+		<tab></tab>
 	</div>	
 </template>
 <script>
 import {Toast,Loading} from 'vux'
 import BScroll from 'better-scroll'
+import Tab from "@/components/tab"
 	export default{
 		data(){
 			return{
@@ -102,6 +104,7 @@ import BScroll from 'better-scroll'
 		components:{
 			Toast,
 			Loading,
+			Tab
 		},
 		mounted(){
 			this.InitTabScroll()

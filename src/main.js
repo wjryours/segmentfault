@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import FastClick from 'fastclick'
-
+import store from './store/index'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 let instance = axios.create({
   	  headers: {'Content-Type':'application/x-www-form-urlencoded'},
@@ -28,6 +28,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

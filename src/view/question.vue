@@ -42,11 +42,13 @@
 				</div>
 			</div>
 		</div>
+		<tab></tab>
 	</div>	
 </template>
 <script>
 import {Toast,Loading} from 'vux'
 import BScroll from 'better-scroll'
+import Tab from "@/components/tab"
 	export default{
 		data(){
 			return{
@@ -90,6 +92,7 @@ import BScroll from 'better-scroll'
 		components:{
 			Toast,
 			Loading,
+			Tab
 		},
 		mounted(){
 			this.InitTabScroll()

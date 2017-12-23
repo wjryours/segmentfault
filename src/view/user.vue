@@ -37,15 +37,23 @@
 				设置
 			</div>
 		</div>
+		<tab></tab>
 	</div>	
 </template>
 <script>
+import {Toast,Loading} from 'vux'
+import Tab from "@/components/tab"
 export default{
 	data(){
 		return{
 
 		}
 	},
+	components:{
+			Toast,
+			Loading,
+			Tab
+		},
 	mounted(){
 
 	},
@@ -80,10 +88,7 @@ export default{
 	margin-top: 0.266667rem;
 	display: flex;
 	align-items: center;
-	box-shadow:0 0 0 #000, /*左边阴影*/  
-    0 0 0  #000, /*右边阴影*/  
-    0 0 0  #000, /*顶部阴影*/  
-    0 0 3px  #000; /*底边阴影*/ 
+	 
 }
 .userinfo_avatar{
 	width: 1.4rem;

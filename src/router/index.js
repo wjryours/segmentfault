@@ -6,6 +6,8 @@ const Article = resolve => require(['@/view/article'],resolve)
 const Question = resolve => require(['@/view/question'],resolve)
 const Discover = resolve => require(['@/view/discover'],resolve)
 const User = resolve => require(['@/view/user'],resolve)
+const Login = resolve => require(['@/view/login'],resolve)
+
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +41,11 @@ export default new Router({
       path: '/User',
       name: 'User',
       component: User
+    },
+    {
+      path:'/Login',
+      name:'Login',
+      component:Login
     }
   ]
 })
