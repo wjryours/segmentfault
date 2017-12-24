@@ -1,1 +1,1 @@
-export const HasShareState = state =>state.HasShareState
+export const UserInfo = state =>state.UserInfo

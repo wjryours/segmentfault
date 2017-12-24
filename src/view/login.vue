@@ -10,14 +10,14 @@
 			<div class="logo_body_item">
 				<div class="logo_item_name">Email或者手机号</div>
 				<div class="logo_input">
-					<input type="text" v-model="UserInfo.name">
+					<input type="text" v-model="UserInformation.name">
 				</div>
 			</div>
 			<div class="logo_body_item">
 				<div class="logo_item_name item_active">密码</div>
 				<div class="logo_input">
-					<input type="text" :type="InputType"> 
-					<div class="noeye_icon" v-model="UserInfo.password" @click="ChangeInputType" :class="{'eye_icon':InputType=='text'}">
+					<input type="text" :type="InputType" v-model="UserInformation.password"> 
+					<div class="noeye_icon"  @click="ChangeInputType" :class="{'eye_icon':InputType=='text'}">
 						
 					</div>
 				</div>
@@ -41,14 +41,22 @@ export default{
 	data(){
 		return{
 			InputType:'password',
-			UserInfo:{
+			UserInformation:{
 				name:'',
 				password:''
 			}
 		}
 	},
 	computed:{
-            ...mapGetters(['HasShareState'])
+            ...mapGetters(['UserInfo'])
+    },
+    created(){
+    	if(this.UserInfo.name!=""){
+    		this.UserInformation.name=this.UserInfo.name
+    	}
+    	if(this.UserInfo.password!=""){
+    		this.UserInformation.password=this.UserInfo.password
+    	}
     },
 	methods:{
 		ChangeInputType(){
@@ -59,10 +67,11 @@ export default{
 			}	
 		},
 		Login(){
-			this.$store.state.UserInfo.name=this.UserInfo.name
-			this.$store.state.UserInfo.password=this.UserInfo.password
+			
+			this.ChangeUserInfo(this.UserInformation)
+			console.log(this.UserInfo)
 		},
-		...mapActions(['isShare','noShare'])
+		...mapActions(['ChangeUserInfo'])
 	}
 }
 </script>

@@ -7,7 +7,6 @@ import * as mutations from './mutations'
 Vue.use(Vuex)
 
 const state={
-	HasShareState:false,
 	UserInfo:{
 		name:'',
 		password:''

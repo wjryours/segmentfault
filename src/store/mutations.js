@@ -1,6 +1,4 @@
-export const isShare = state =>{
-	state.HasShareState = true
-}
-export const noShare = state =>{
-	state.HasShareState = false
+export const ChangeUserInfo = (state,user) =>{
+	state.UserInfo.name=user.name
+	state.UserInfo.password=user.password
 }
